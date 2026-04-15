@@ -12,7 +12,7 @@ RUN mvn -f financial-app-parent/pom.xml install -N -q
 
 # Resolve dependencies (cached layer — only re-runs when pom.xml changes)
 COPY ms-cards/pom.xml ms-cards/pom.xml
-RUN mvn -f ms-cards/pom.xml dependency:go-offline -q
+RUN mvn -f ms-cards/pom.xml dependency:resolve -q
 
 # Build
 COPY ms-cards/src ms-cards/src
